@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: contosoworkflow
-  namespace: contosoair
+  name: contosoair
+  namespace: default
   labels:
-    app.kubernetes.io/name: contosoworkflow
+    app.kubernetes.io/name: contosoair
     kubernetes.azure.com/generator: devhub
 spec:
   type: LoadBalancer
   selector:
-    app.kubernetes.io/name: contosoworkflow
+    app.kubernetes.io/name: contosoair
   ports:
     - protocol: TCP
-      port: 3001
-      targetPort: 3001
+      port: 80
+      targetPort: 80
