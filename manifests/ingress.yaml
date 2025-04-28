@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: "contosoair-ingress"
+  namespace: "default"
+  labels:
+    app.kubernetes.io/name: contosoair-ingress
+    app.kubernetes.io/part-of: contosoair-project
+    kubernetes.azure.com/generator: draft
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+    - host: "sample.hpdnszone1.com"
+      http:
+        paths:
+          - backend:
+              service:
+                name: "contosoair"
+                port:
+                  number: 80
+            path: "/"
+            pathType: Prefix
